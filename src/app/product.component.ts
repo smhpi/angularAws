@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
   selector: "app-product",
@@ -6,8 +6,10 @@ import { Component } from "@angular/core";
   styleUrls: ["./product.component.css"]
 })
 export class ProdComponent {
-  productTitle = "Lenovo ThinkPad E580";
-  brand = "Lenovo";
-  price = 1900;
-  salesPrice = 1749;
+  @Input() productItem;
+  @Output() delete = new EventEmitter();
+
+  onDelete() {
+    this.delete.emit(this.productItem);
+  }
 }
