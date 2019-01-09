@@ -1,0 +1,101 @@
+<div class="container">
+  <h1>New Product</h1>
+  <h5>
+    <a routerLink="/products"> {{ "<" }} Products List</a>
+  </h5>
+  <form #newProductForm="ngForm" (ngSubmit)="onSubmit(newProductForm.value)">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input
+        name="title"
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Lenovo ThinkPad Laptop"
+        ngModel
+      />
+    </div>
+    <div class="form-group">
+      <label for="details">Description</label>
+      <textarea
+        name="details"
+        class="form-control"
+        id="details"
+        rows="3"
+        ngModel
+      ></textarea>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="brand">Brand</label>
+        <input
+          name="name"
+          type="text"
+          class="form-control"
+          id="brand"
+          placeholder="Lenovo"
+          ngModel
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="sku">SKU</label>
+        <input
+          name="sku"
+          type="text"
+          class="form-control"
+          id="sku"
+          placeholder="CSDLXXXX"
+          ngModel
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="category">Category</label>
+        <input
+          name="category"
+          type="text"
+          class="form-control"
+          id="category"
+          placeholder="Laptop"
+          ngModel
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="price">Price</label>
+        <input
+          name="price"
+          type="text"
+          class="form-control"
+          id="price"
+          placeholder="$$$"
+          ngModel
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="salesPrice">Sales Price</label>
+        <input
+          name="salesprice"
+          type="text"
+          class="form-control"
+          id="salesPrice"
+          placeholder="$$$"
+          ngModel
+        />
+      </div>
+      <div class="col-md-4">
+        <label for="quantity">Quantity</label>
+        <input
+          name="quantity"
+          type="text"
+          class="form-control"
+          id="quantity"
+          placeholder="###"
+          ngModel
+        />
+      </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

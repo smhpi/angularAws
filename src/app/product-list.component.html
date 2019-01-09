@@ -2,7 +2,17 @@
   <div>{{ productItems | categoryList }}</div>
 </header>
 <section>
-  <h1>Products</h1>
+  <div>
+    <h1 style="float: left">Products</h1>
+    <button
+      class="btn btn-success"
+      style="position: relative; float: right;"
+      routerLink="/new"
+    >
+      + Add Item
+    </button>
+    <br style="clear: both;" />
+  </div>
   <app-product
     [ngClass]="{
       'in-stock': productItem.quantity > 0,
