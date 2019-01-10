@@ -1,6 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { Validators, FormBuilder } from "@angular/forms";
+
 import { ProductService } from "./product.service";
+import { lookupListToken } from "./provider";
 
 @Component({
   selector: "new-item",
@@ -12,7 +14,8 @@ export class NewProduct {
 
   constructor(
     private formBuilder: FormBuilder,
-    private producService: ProductService
+    private producService: ProductService,
+    @Inject(lookupListToken) public lookupLists
   ) {}
 
   ngOnInit() {

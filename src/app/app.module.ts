@@ -12,6 +12,7 @@ import { CategoryListPipe } from "./category-list.pipe";
 import { NewProduct } from "./new-product.component";
 import { ProductService } from "./product.service";
 import { routing } from "./app.routing";
+import { lookupListToken, lookupLists } from "./provider";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,10 @@ import { routing } from "./app.routing";
     NewProduct
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, routing],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    { provide: lookupListToken, useValue: lookupLists }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
