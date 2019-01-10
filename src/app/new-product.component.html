@@ -3,99 +3,122 @@
   <h5>
     <a routerLink="/products"> {{ "<" }} Products List</a>
   </h5>
-  <form #newProductForm="ngForm" (ngSubmit)="onSubmit(newProductForm.value)">
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input
-        name="title"
-        type="text"
-        class="form-control"
-        id="title"
-        placeholder="Lenovo ThinkPad Laptop"
-        ngModel
-      />
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="title">Title</label>
+        <div class="input-group">
+          <input
+            name="title"
+            type="text"
+            value="title"
+            class="form-control"
+            id="title"
+            placeholder="Lenovo ThinkPad Laptop"
+            formControlName="title"
+          />
+          <div
+            *ngIf="form.get('title').hasError('pattern')"
+            style="width: 100%;
+              margin-top: .25rem;
+              font-size: 80%;
+              color: #dc3545"
+          >
+            title has invalid characters
+          </div>
+        </div>
+      </div>
     </div>
     <div class="form-group">
       <label for="details">Description</label>
       <textarea
         name="details"
+        value="details"
         class="form-control"
         id="details"
         rows="3"
-        ngModel
+        formControlName="details"
       ></textarea>
     </div>
-    <div class="row">
-      <div class="col-md-4">
+    <div class="form-row">
+      <div class="form-group col-md-4">
         <label for="brand">Brand</label>
         <input
-          name="name"
+          name="brand"
           type="text"
+          value="brand"
           class="form-control"
           id="brand"
           placeholder="Lenovo"
-          ngModel
+          formControlName="brand"
         />
       </div>
-      <div class="col-md-4">
+      <div class="form-group col-md-4">
         <label for="sku">SKU</label>
         <input
           name="sku"
           type="text"
+          value="sku"
           class="form-control"
           id="sku"
           placeholder="CSDLXXXX"
-          ngModel
+          formControlName="sku"
         />
       </div>
-      <div class="col-md-4">
+      <div class="form-group col-md-4">
         <label for="category">Category</label>
         <input
           name="category"
           type="text"
+          value="category"
           class="form-control"
           id="category"
           placeholder="Laptop"
-          ngModel
+          formControlName="category"
         />
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4">
+    <div class="form-row">
+      <div class="form-group col-md-4">
         <label for="price">Price</label>
         <input
           name="price"
+          value="price"
           type="text"
           class="form-control"
           id="price"
           placeholder="$$$"
-          ngModel
+          formControlName="price"
         />
       </div>
-      <div class="col-md-4">
+      <div class="form-group col-md-4">
         <label for="salesPrice">Sales Price</label>
         <input
-          name="salesprice"
+          name="salesPrice"
           type="text"
+          value="salesPrice"
           class="form-control"
           id="salesPrice"
           placeholder="$$$"
-          ngModel
+          formControlName="salesPrice"
         />
       </div>
-      <div class="col-md-4">
+      <div class="form-group col-md-4">
         <label for="quantity">Quantity</label>
         <input
           name="quantity"
           type="text"
+          value="quantity"
           class="form-control"
           id="quantity"
           placeholder="###"
-          ngModel
+          formControlName="quantity"
         />
       </div>
     </div>
     <br />
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
+      Submit
+    </button>
   </form>
 </div>
