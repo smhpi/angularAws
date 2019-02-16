@@ -13,6 +13,7 @@ import { NewProduct } from "./new-product.component";
 import { ProductService } from "./product.service";
 import { routing } from "./app.routing";
 import { lookupListToken, lookupLists } from "./provider";
+import { HttpClientModule, HttpXhrBackend } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,13 @@ import { lookupListToken, lookupLists } from "./provider";
     CategoryListPipe,
     NewProduct
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, routing],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    routing
+  ],
   providers: [
     ProductService,
     { provide: lookupListToken, useValue: lookupLists }
